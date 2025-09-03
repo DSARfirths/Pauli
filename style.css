@@ -47,6 +47,19 @@ body {
     position: relative;
 }
 
+/* --- Animación de aparición para elementos en scroll --- */
+/* Estado inicial de los elementos a animar */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+}
+/* Estado final cuando el elemento es visible (clase añadida por JS) */
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .section-title::after {
     content: '';
     display: block;
@@ -171,6 +184,19 @@ body {
 .swiper-slide {
     background-size: cover;
     background-position: center;
+    overflow: hidden; /* Esencial para que el fondo que se agranda no se desborde */
+}
+
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.15); /* Inicia un poco más grande */
+    transition: transform 8s ease-out; /* Duración de la animación de alejamiento */
 }
 
 .hero-overlay {
@@ -222,6 +248,11 @@ body {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.4s; /* Pequeño retraso para que se vea después de la transición del slide */
+}
+
+/* Efecto de alejamiento (reverse Ken Burns) para la diapositiva activa */
+.swiper-slide-active .slide-background {
+    transform: scale(1); /* Vuelve al tamaño normal, creando el efecto de alejamiento */
 }
 
 /* Estilos para los controles de Swiper */
@@ -411,6 +442,54 @@ body {
 
 .gallery-item:hover img {
     transform: scale(1.05);
+}
+
+/* 7.5. Testimonios Section */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.testimonial-card {
+    background-color: var(--fondo-seccion);
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 4px solid var(--dorado-acento);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.testimonial-card blockquote {
+    margin: 0;
+    font-style: italic;
+    color: var(--gris-oscuro);
+    flex-grow: 1;
+    padding-bottom: 20px;
+    line-height: 1.7;
+}
+
+.testimonial-card blockquote::before {
+    content: '“';
+    font-family: var(--font-titulos);
+    font-size: 5rem;
+    color: var(--azul-puerta);
+    opacity: 0.15;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    line-height: 1;
+}
+
+.testimonial-card cite {
+    font-weight: 700;
+    font-style: normal;
+    color: var(--azul-pauli);
+    text-align: right;
+    margin-top: auto;
 }
 
 /* 8. Contacto Section */

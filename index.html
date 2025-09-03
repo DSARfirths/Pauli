@@ -5,6 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pauli Kaffee - Elegancia y Sabor en Piura</title>
     <meta name="description" content="Descubre la experiencia Pauli Kaffee. Un espacio acogedor con café de especialidad, brunch, almuerzos y postres de alta calidad.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.paulikaffee.com/"> <!-- Reemplazar con tu URL final -->
+    <meta property="og:title" content="Pauli Kaffee - Elegancia y Sabor en Piura">
+    <meta property="og:description" content="Un espacio acogedor con café de especialidad, brunch, almuerzos y postres de alta calidad.">
+    <meta property="og:image" content="https://www.paulikaffee.com/assets/images/social-share.jpg"> <!-- Reemplazar con una imagen representativa (1200x630px) -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.paulikaffee.com/"> <!-- Reemplazar con tu URL final -->
+    <meta property="twitter:title" content="Pauli Kaffee - Elegancia y Sabor en Piura">
+    <meta property="twitter:description" content="Un espacio acogedor con café de especialidad, brunch, almuerzos y postres de alta calidad.">
+    <meta property="twitter:image" content="https://www.paulikaffee.com/assets/images/social-share.jpg"> <!-- Reemplazar con la misma imagen -->
+
+    <!-- Datos Estructurados (Schema.org) para Negocio Local -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Pauli Kaffee",
+      "image": "https://www.paulikaffee.com/assets/images/Logo-Pauli-oficial.png",
+      "telephone": "+51942246860",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle San Miguel 140, Santa Isabel",
+        "addressLocality": "Piura",
+        "postalCode": "20001",
+        "addressCountry": "PE"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "08:00",
+        "closes": "23:00"
+      },
+      "servesCuisine": "Café, Brunch, Almuerzo, Postres",
+       "url": "https://www.paulikaffee.com/"
+    }
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +94,8 @@
             <div class="swiper hero-swiper">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
-                    <div class="swiper-slide" style="background-image: url('assets/images/Más interiores de Pauli (5).jpg');">
+                    <div class="swiper-slide">
+                        <div class="slide-background" style="background-image: url('assets/images/Más interiores de Pauli (5).jpg');"></div>
                         <div class="hero-overlay">
                             <div class="hero-content">
                                 <img src="assets/images/Logo-Pauli-oficial.png" alt="Logo Pauli Kaffee en Hero" class="hero-logo">
@@ -55,20 +106,22 @@
                         </div>
                     </div>
                     <!-- Slide 2 -->
-                    <div class="swiper-slide" style="background-image: url('assets/images/Exterior de Pauli (2).jpg');">
+                    <div class="swiper-slide">
+                        <div class="slide-background" style="background-image: url('assets/images/Exterior de Pauli (2).jpg');"></div>
                         <div class="hero-overlay">
                             <div class="hero-content">
-                                <h1 class="hero-title">Tu esquina favorita en Piura</h1>
+                                <h2 class="hero-title">Tu esquina favorita en Piura</h2>
                                 <p class="hero-subtitle">Donde cada visita se convierte en un recuerdo.</p>
                                 <a href="#contacto" class="btn btn-primary">Encuéntranos</a>
                             </div>
                         </div>
                     </div>
                     <!-- Slide 3 -->
-                    <div class="swiper-slide" style="background-image: url('assets/images/Consumidores felices (2).jpg');">
+                    <div class="swiper-slide">
+                        <div class="slide-background" style="background-image: url('assets/images/Consumidores felices (2).jpg');"></div>
                         <div class="hero-overlay">
                             <div class="hero-content">
-                                <h1 class="hero-title">Momentos para compartir</h1>
+                                <h2 class="hero-title">Momentos para compartir</h2>
                                 <p class="hero-subtitle">La mejor compañía, el mejor café.</p>
                                 <a href="#galeria" class="btn btn-primary">Ver Galería</a>
                             </div>
@@ -150,6 +203,35 @@
             </div>
         </section>
 
+        <section id="testimonios" class="content-section">
+            <div class="container">
+                <h2 class="section-title reveal">¿Qué dicen de nosotros?</h2>
+                <div class="testimonials-grid">
+                    <!-- Testimonio 1 -->
+                    <div class="testimonial-card reveal">
+                        <blockquote>
+                            «Desde que descubrí Pauli Kaffee, se ha convertido en mi lugar favorito. El diseño es moderno y acogedor, perfecto para disfrutar de un café mientras trabajo o me relajo con amigos. ¡Los salados son simplemente espectaculares!»
+                        </blockquote>
+                        <cite>Mariana R.</cite>
+                    </div>
+                    <!-- Testimonio 2 -->
+                    <div class="testimonial-card reveal">
+                        <blockquote>
+                            «La combinación de sabores es inigualable. Se nota el amor con el que preparan cada plato y el café es de otro nivel. Es un espacio que realmente te invita a quedarte y disfrutar.»
+                        </blockquote>
+                        <cite>Carlos M.</cite>
+                    </div>
+                    <!-- Testimonio 3 -->
+                    <div class="testimonial-card reveal">
+                        <blockquote>
+                            «Me encanta el ambiente de Paulii Kaffee. La atención es excelente y siempre hay algo nuevo en el menú que sorprende. Sin duda, un rincón perfecto para una pausa deliciosa.»
+                        </blockquote>
+                        <cite>Andrea G.</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contacto" class="content-section contact-section">
             <div class="container">
                 <h2 class="section-title reveal">Visítanos</h2>
@@ -160,8 +242,8 @@
                         <p><i class="fas fa-phone"></i> 942 246 860</p>
                         <p><i class="fas fa-clock"></i> <strong>Martes a Domingo:</strong> 8:00 AM - 11:00 PM</p>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/PAULI.KAFFEE" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/profile.php?id=61567485622091" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/PAULI.KAFFEE" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=61567485622091" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                         </div>
                     </div>
                     <div class="contact-map">
@@ -184,8 +266,8 @@
             <img src="assets/images/Logo-Pauli-oficial.png" alt="Logo Pauli Kaffee" class="footer-logo">
             <p>© 2025 Pauli Kaffee. Todos los derechos reservados.</p>
             <div class="footer-social">
-                 <a href="https://www.instagram.com/PAULI.KAFFEE" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                 <a href="https://www.facebook.com/profile.php?id=61567485622091" target="_blank"aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                 <a href="https://www.instagram.com/PAULI.KAFFEE" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.facebook.com/profile.php?id=61567485622091" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
     </footer>
