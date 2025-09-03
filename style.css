@@ -144,17 +144,33 @@ body {
     width: 100%;
 }
 
+/* Botón de hamburguesa */
+.nav-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    background: none;
+    border: none;
+    color: var(--blanco-nitido);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1100; /* Asegura que esté sobre otros elementos */
+}
+
 
 /* 4. Hero Section */
 .hero-section {
+    position: relative;
     height: 100vh;
+    color: var(--blanco-nitido);
+}
+
+.hero-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
     background-size: cover;
     background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
 }
 
 .hero-overlay {
@@ -164,12 +180,22 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
+    /* Hacemos que la superposición sea el contenedor flexible para centrar el contenido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    color: var(--blanco-nitido);
+    max-width: 90%;
+    /* Animación para el contenido */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    text-align: center;
 }
 
 .hero-logo {
@@ -191,6 +217,36 @@ body {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
+/* Animación para el slide activo */
+.swiper-slide-active .hero-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s; /* Pequeño retraso para que se vea después de la transición del slide */
+}
+
+/* Estilos para los controles de Swiper */
+.hero-swiper .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+    background-color: var(--dorado-acento);
+    transform: scale(1.2);
+}
+
+.hero-swiper .swiper-button-next,
+.hero-swiper .swiper-button-prev {
+    color: var(--blanco-nitido);
+    transition: color 0.3s ease;
+}
+.hero-swiper .swiper-button-next:hover,
+.hero-swiper .swiper-button-prev:hover {
+    color: var(--dorado-acento);
+}
 /* 5. Nosotros Section */
 .about-content {
     display: flex;
@@ -339,6 +395,12 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.gallery-item a {
+    display: block;
+    line-height: 0; /* Evita espacios extra debajo de la imagen */
+    cursor: zoom-in;
+}
+
 .gallery-item img {
     width: 100%;
     height: 100%;
@@ -458,7 +520,32 @@ body {
 
 @media (max-width: 768px) {
     .nav-menu {
-        display: none; /* Simplificación para este proyecto, un menú hamburguesa sería ideal para proyectos más grandes */
+        /* Estilos para el menú en móvil */
+        position: fixed;
+        top: 0;
+        right: -100%; /* Empieza fuera de la pantalla */
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--azul-pauli);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-menu.active {
+        right: 0; /* Mueve el menú a la vista */
+    }
+
+    .nav-menu a {
+        font-size: 1.2rem;
+    }
+
+    .nav-toggle {
+        display: block; /* Muestra el botón de hamburguesa */
     }
 
     .hero-logo { max-width: 220px; }

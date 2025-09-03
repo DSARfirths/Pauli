@@ -12,6 +12,11 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,25 +32,60 @@
                 <li><a href="index.html#galeria">Galería</a></li>
                 <li><a href="index.html#contacto">Contacto</a></li>
             </ul>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
     <main>
-        <section id="inicio" class="hero-section" style="background-image: url('assets/images/Más interiores de Pauli (5).jpg');">
-            <div class="hero-overlay">
-                <div class="hero-content">
-                    <img src="assets/images/Logo-Pauli-oficial.png" alt="Logo Pauli Kaffee en Hero" class="hero-logo">
-                    <h1 class="hero-title">Un refugio de sabor y elegancia</h1>
-                    <p class="hero-subtitle">Café de especialidad, gastronomía y momentos inolvidables.</p>
-                    <a href="#menu" class="btn btn-primary">Ver la Carta</a>
+        <!-- Hero Section con Carrusel Swiper.js -->
+        <section id="inicio" class="hero-section">
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide" style="background-image: url('assets/images/Más interiores de Pauli (5).jpg');">
+                        <div class="hero-overlay">
+                            <div class="hero-content">
+                                <img src="assets/images/Logo-Pauli-oficial.png" alt="Logo Pauli Kaffee en Hero" class="hero-logo">
+                                <h1 class="hero-title">Un refugio de sabor y elegancia</h1>
+                                <p class="hero-subtitle">Café de especialidad, gastronomía y momentos inolvidables.</p>
+                                <a href="#menu" class="btn btn-primary">Ver la Carta</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide" style="background-image: url('assets/images/Exterior de Pauli (2).jpg');">
+                        <div class="hero-overlay">
+                            <div class="hero-content">
+                                <h1 class="hero-title">Tu esquina favorita en Piura</h1>
+                                <p class="hero-subtitle">Donde cada visita se convierte en un recuerdo.</p>
+                                <a href="#contacto" class="btn btn-primary">Encuéntranos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide" style="background-image: url('assets/images/Consumidores felices (2).jpg');">
+                        <div class="hero-overlay">
+                            <div class="hero-content">
+                                <h1 class="hero-title">Momentos para compartir</h1>
+                                <p class="hero-subtitle">La mejor compañía, el mejor café.</p>
+                                <a href="#galeria" class="btn btn-primary">Ver Galería</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Controles de Navegación -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </section>
 
         <section id="menu" class="content-section menu-section">
             <div class="container">
-                <h2 class="section-title">Nuestra Carta</h2>
-                <div class="menu-filters">
+                <h2 class="section-title reveal">Nuestra Carta</h2>
+                <div class="menu-filters reveal">
                     <button class="menu-filter-btn active" data-category="all">Todo</button>
                     <button class="menu-filter-btn" data-category="breakfast">Breakfast & Brunch</button>
                     <button class="menu-filter-btn" data-category="almuerzo">Almuerzo</button>
@@ -59,24 +99,56 @@
 
         <section id="galeria" class="content-section">
             <div class="container">
-                <h2 class="section-title">La Experiencia Pauli</h2>
+                <h2 class="section-title reveal">La Experiencia Pauli</h2>
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="assets/images/Tomas fotograficas de platillos y bebidas (9).jpg" alt="Plato gourmet en Pauli Kaffee"></div>
-                    <div class="gallery-item"><img src="assets/images/Consumidores felices (1).jpg" alt="Clientes disfrutando en Pauli Kaffee"></div>
-                    <div class="gallery-item"><img src="assets/images/Capuccino-con-arte.jpg" alt="Cappuccino con arte latte"></div>
-                    <div class="gallery-item"><img src="assets/images/Exterior de Pauli (2).jpg" alt="Fachada de Pauli Kaffee"></div>
-                    <div class="gallery-item"><img src="assets/images/Tomas fotograficas de platillos y bebidas (5).jpg" alt="Mesa servida con comida y café"></div>
-                    <div class="gallery-item"><img src="assets/images/Fotos esteticas de personal y café (7).jpg" alt="Barista sonriente de Pauli Kaffee"></div>
-                    <div class="gallery-item"><img src="assets/images/Más interiores de Pauli (7).jpg" alt="Pared con cuadros decorativos"></div>
-                    <div class="gallery-item"><img src="assets/images/Consumidores felices (4).jpg" alt="Vitrina de postres de Pauli Kaffee"></div>
+                    <div class="gallery-item reveal">
+                        <a href="assets/images/Tomas fotograficas de platillos y bebidas (9).jpg" class="glightbox" data-gallery="pauli-gallery">
+                            <img src="assets/images/Tomas fotograficas de platillos y bebidas (9).jpg" alt="Plato gourmet en Pauli Kaffee" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="gallery-item reveal">
+                        <a href="assets/images/Consumidores felices (1).jpg" class="glightbox" data-gallery="pauli-gallery">
+                            <img src="assets/images/Consumidores felices (1).jpg" alt="Clientes disfrutando en Pauli Kaffee" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="gallery-item reveal">
+                        <a href="assets/images/Capuccino-con-arte.jpg" class="glightbox" data-gallery="pauli-gallery">
+                            <img src="assets/images/Capuccino-con-arte.jpg" alt="Cappuccino con arte latte" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="gallery-item reveal">
+                        <a href="assets/images/Exterior de Pauli (2).jpg" class="glightbox" data-gallery="pauli-gallery">
+                            <img src="assets/images/Exterior de Pauli (2).jpg" alt="Fachada de Pauli Kaffee" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="gallery-item reveal">
+                        <a href="assets/images/Tomas fotograficas de platillos y bebidas (5).jpg" class="glightbox" data-gallery="pauli-gallery">
+                            <img src="assets/images/Tomas fotograficas de platillos y bebidas (5).jpg" alt="Mesa servida con comida y café" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="gallery-item reveal">
+                        <a href="assets/images/Fotos esteticas de personal y café (7).jpg" class="glightbox" data-gallery="pauli-gallery">
+                            <img src="assets/images/Fotos esteticas de personal y café (7).jpg" alt="Barista sonriente de Pauli Kaffee" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="gallery-item reveal">
+                        <a href="assets/images/Más interiores de Pauli (7).jpg" class="glightbox" data-gallery="pauli-gallery">
+                            <img src="assets/images/Más interiores de Pauli (7).jpg" alt="Pared con cuadros decorativos" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="gallery-item reveal">
+                        <a href="assets/images/Consumidores felices (4).jpg" class="glightbox" data-gallery="pauli-gallery">
+                            <img src="assets/images/Consumidores felices (4).jpg" alt="Vitrina de postres de Pauli Kaffee" loading="lazy">
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="contacto" class="content-section contact-section">
             <div class="container">
-                <h2 class="section-title">Visítanos</h2>
-                <div class="contact-content">
+                <h2 class="section-title reveal">Visítanos</h2>
+                <div class="contact-content reveal">
                     <div class="contact-info">
                         <h3>Pauli Kaffee</h3>
                         <p><i class="fas fa-map-marker-alt"></i> Calle San Miguel 140, Santa Isabel, Piura</p>
@@ -113,6 +185,11 @@
         </div>
     </footer>
 
+     <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

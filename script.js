@@ -1,5 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // --- MOBILE NAVIGATION ---
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navIcon = navToggle.querySelector('i');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+
+        // Cambiar el ícono de hamburguesa a una 'X' y viceversa
+        if (navMenu.classList.contains('active')) {
+            navIcon.classList.remove('fa-bars');
+            navIcon.classList.add('fa-times');
+        } else {
+            navIcon.classList.remove('fa-times');
+            navIcon.classList.add('fa-bars');
+        }
+    });
+
+    // --- CERRAR MENÚ AL HACER CLIC EN UN ENLACE ---
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navIcon.classList.remove('fa-times');
+            navIcon.classList.add('fa-bars');
+        });
+    });
+    
     // --- SMOOTH SCROLL FOR NAV LINKS ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -10,6 +38,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // --- HERO CAROUSEL ---
+    const heroSwiper = new Swiper('.hero-swiper', {
+        // Opciones
+        loop: true,
+        effect: 'fade', // Efecto de desvanecimiento
+        fadeEffect: {
+            crossFade: true
+        },
+        autoplay: {
+            delay: 5000, // Cambia cada 5 segundos
+            disableOnInteraction: false,
+        },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
+    
     // --- MENU DATA ---
     const menuData = {
         breakfast: [
@@ -134,4 +178,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial render
     renderMenu('all');
+    // --- SCROLL REVEAL ANIMATION ---
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Opcional: dejar de observar el elemento una vez que es visible
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: null, // viewport
+        threshold: 0.1, // 10% del elemento debe ser visible
+        rootMargin: '0px 0px -50px 0px' // Empieza la animación un poco antes de que llegue al fondo
+    });
+
+    // Observar todos los elementos con la clase .reveal
+    document.querySelectorAll('.reveal').forEach(elem => {
+        revealObserver.observe(elem);
+    });
+
+    // --- SCROLL SPY FOR NAVIGATION ---
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinksForSpy = document.querySelectorAll('.nav-menu a[href^="index.html#"]');
+
+    const scrollSpyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                
+                navLinksForSpy.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `index.html#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { 
+        rootMargin: '-50% 0px -50% 0px' // Activa el enlace cuando la sección está en el centro de la pantalla
+    });
+
+    sections.forEach(section => {
+        scrollSpyObserver.observe(section);
+    });
+
+    // --- LIGHTBOX FOR GALLERY ---
+    const lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true
+    });
 });
