@@ -1,0 +1,613 @@
+/* --- GUÍA DE ESTILO WEB PARA PAULI KAFFEE --- */
+
+/* 1. Variables de Color y Fuentes */
+:root {
+    --azul-pauli: #0A2A5B;
+    --azul-puerta: #6A89C8;
+    --dorado-acento: #C79A00;
+    --blanco-nitido: #FDFDFD;
+    --gris-oscuro: #333333;
+    --fondo-seccion: #FFFFFF;
+
+    --font-titulos: 'Playfair Display', serif;
+    --font-cuerpo: 'Lato', sans-serif;
+}
+
+/* 2. Reseteo y Estilos Globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-cuerpo);
+    color: var(--gris-oscuro);
+    background-color: var(--blanco-nitido);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-family: var(--font-titulos);
+    font-size: 2.8rem;
+    color: var(--dorado-acento);
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--azul-puerta);
+    margin: 10px auto 0;
+}
+
+.content-section {
+    padding: 80px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: var(--font-cuerpo);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--azul-pauli);
+    color: var(--blanco-nitido);
+}
+
+.btn-primary:hover {
+    background-color: #1c4a91;
+    transform: translateY(-3px);
+}
+
+/* 3. Header y Navegación */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(10, 42, 91, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 0;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-logo img {
+    height: 50px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: var(--blanco-nitido);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--dorado-acento);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: var(--dorado-acento);
+}
+
+.nav-menu a:hover::after, .nav-menu a.active::after {
+    width: 100%;
+}
+
+
+/* 4. Hero Section */
+.hero-section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--blanco-nitido);
+}
+
+.hero-logo {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-family: var(--font-titulos);
+    font-size: 3.5rem;
+    color: var(--dorado-acento);
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    margin: 15px 0 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* 5. Nosotros Section */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-family: var(--font-titulos);
+    color: var(--azul-pauli);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.paulina-story {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #f7f7f7;
+    border-left: 4px solid var(--azul-puerta);
+    padding: 20px;
+    border-radius: 5px;
+}
+.paulina-story img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 6. Menú Section */
+.menu-section {
+    background-color: #f9f9f9;
+}
+
+.menu-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.menu-filter-btn {
+    padding: 10px 20px;
+    font-family: var(--font-cuerpo);
+    font-weight: 700;
+    background-color: transparent;
+    border: 2px solid var(--azul-puerta);
+    color: var(--azul-puerta);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-filter-btn:hover {
+    background-color: var(--azul-puerta);
+    color: var(--blanco-nitido);
+}
+
+.menu-filter-btn.active {
+    background-color: var(--azul-pauli);
+    color: var(--blanco-nitido);
+    border-color: var(--azul-pauli);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.menu-category-title {
+    grid-column: 1 / -1;
+    font-family: var(--font-titulos);
+    font-size: 2rem;
+    color: var(--azul-pauli);
+    border-bottom: 2px solid var(--dorado-acento);
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.menu-item {
+    background-color: var(--fondo-seccion);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 15px;
+}
+
+.menu-item-header h4 {
+    font-family: var(--font-cuerpo);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--gris-oscuro);
+}
+
+.menu-item-price {
+    font-weight: 700;
+    color: var(--azul-pauli);
+    font-size: 1.1rem;
+}
+
+.menu-item-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+}
+
+/* 7. Galería Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* 8. Contacto Section */
+.contact-section {
+    background-color: #f9f9f9;
+}
+
+.contact-content {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
+    font-family: var(--font-titulos);
+    color: var(--azul-pauli);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info p i {
+    color: var(--azul-puerta);
+    font-size: 1.2rem;
+    margin-right: 15px;
+    width: 25px;
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links a {
+    color: var(--azul-pauli);
+    font-size: 2rem;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--dorado-acento);
+}
+
+.contact-map {
+    flex: 1.5;
+    min-height: 400px;
+}
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+}
+
+/* 9. Footer */
+.main-footer {
+    background-color: var(--azul-pauli);
+    color: var(--blanco-nitido);
+    padding: 50px 0;
+    text-align: center;
+}
+
+.footer-logo {
+    height: 60px;
+    margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.main-footer p {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.footer-social a {
+    color: var(--blanco-nitido);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--dorado-acento);
+}
+
+/* 10. Responsive Design */
+@media (max-width: 992px) {
+    .section-title { font-size: 2.5rem; }
+    .hero-title { font-size: 3rem; }
+
+    .about-content { flex-direction: column; }
+    .about-image { margin-top: 30px; }
+    
+    .contact-content { flex-direction: column; }
+    .contact-map { width: 100%; margin-top: 40px;}
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Simplificación para este proyecto, un menú hamburguesa sería ideal para proyectos más grandes */
+    }
+
+    .hero-logo { max-width: 220px; }
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title { font-size: 2rem; }
+    .hero-title { font-size: 2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .btn { padding: 10px 22px; }
+}
+
+/* --- 11. ESTILOS PARA LA PÁGINA "NOSOTROS" --- */
+
+/* Encabezado de la página */
+.page-header-section {
+    padding: 120px 0;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    text-align: center;
+    color: var(--blanco-nitido);
+}
+
+.page-header-title {
+    font-family: var(--font-titulos);
+    font-size: 3.5rem;
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Contenido de la historia */
+.story-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.story-text {
+    flex: 1.2;
+}
+
+.story-text .story-subtitle {
+    font-family: var(--font-titulos);
+    color: var(--azul-pauli);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.story-text h3 {
+    font-family: var(--font-titulos);
+    color: var(--dorado-acento);
+    font-size: 1.5rem;
+    margin-top: 25px;
+}
+
+.story-text p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.story-image {
+    flex: 1;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Sección de la fundadora */
+.founder-section {
+    background-color: #f9f9f9;
+}
+
+.founder-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.founder-image {
+    flex: 1;
+    max-width: 400px;
+}
+
+.founder-image img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px var(--blanco-nitido), 0 0 0 12px var(--azul-puerta);
+}
+
+.founder-quote {
+    flex: 1.5;
+}
+
+.founder-quote blockquote {
+    font-family: var(--font-titulos);
+    font-size: 2.2rem;
+    line-height: 1.4;
+    color: var(--azul-pauli);
+    border-left: 5px solid var(--dorado-acento);
+    padding-left: 30px;
+    margin: 0;
+}
+
+.founder-quote cite {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+    margin-top: 20px;
+    padding-left: 35px;
+}
+
+
+/* --- Responsive para página Nosotros --- */
+@media (max-width: 992px) {
+    .story-container {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header-title {
+        font-size: 2.8rem;
+    }
+
+    .founder-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .founder-quote blockquote {
+        font-size: 1.8rem;
+        padding: 0 0 0 20px;
+        text-align: left;
+    }
+    
+    .founder-quote cite {
+        padding-left: 25px;
+        text-align: left;
+    }
+}
